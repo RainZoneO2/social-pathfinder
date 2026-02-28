@@ -25,8 +25,3 @@ def print_graph_info(graph):
     print(f"{graph.number_of_edges()} Edges in the graph: {list(graph.edges(data=True))}")
     for node in list(graph.nodes())[:2]:
         print(f"Neighbors of {node}: {list(graph.adj[node])}")
-    
-if __name__ == "__main__":
-    demo_graph = build_demo_graph()
-    assign_edge_weights(demo_graph)
-    print_graph_info(demo_graph)
