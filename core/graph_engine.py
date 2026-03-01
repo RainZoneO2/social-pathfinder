@@ -1,6 +1,6 @@
 import networkx as nx
 
-def build_demo_graph():
+def build_demo_graph() -> nx.Graph:
     """Create a small hardcoded demo social network."""
     G = nx.Graph()
     G.add_nodes_from([("Alice", { "followers":20 }), ("Bob", { "followers":15 }), 
@@ -12,14 +12,14 @@ def build_demo_graph():
                       ("Sarah", "Emily"), ("Sarah", "David")])
     return G
 
-def assign_edge_weights(graph):
+def assign_edge_weights(graph: nx.Graph) -> None:
     """Assign weights to edges based on the number of followers of the connected nodes."""
     for u, v in graph.edges():
         followers_u = graph.nodes[u]["followers"]
         followers_v = graph.nodes[v]["followers"]
         graph.edges[u, v]["weight"] = followers_u + followers_v
 
-def print_graph_info(graph):
+def print_graph_info(graph: nx.Graph) -> None:
     """Print basic information about the graph."""
     print(f"{graph.number_of_nodes()} Nodes in the graph: {list(graph.nodes())}")
     print(f"{graph.number_of_edges()} Edges in the graph: {list(graph.edges(data=True))}")
